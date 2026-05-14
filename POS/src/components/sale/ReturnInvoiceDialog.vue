@@ -608,7 +608,7 @@ const originalOutstandingAmount = ref(0)
 
 // Resource for loading recent invoices (only those with items available for return)
 const loadInvoicesResource = createResource({
-	url: "posnext.api.invoices.get_returnable_invoices",
+	url: "pos_next.api.invoices.get_returnable_invoices",
 	makeParams() {
 		return {
 			limit: 50,
@@ -649,7 +649,7 @@ const loadPaymentMethodsResource = createResource({
 
 // Resource for fetching a specific invoice with return tracking
 const fetchInvoiceResource = createResource({
-	url: "posnext.api.invoices.get_invoice_for_return",
+	url: "pos_next.api.invoices.get_invoice_for_return",
 	auto: false,
 	onSuccess(data) {
 		if (data) {
@@ -717,7 +717,7 @@ const fetchInvoiceResource = createResource({
 
 // Resource for creating return invoice
 const createReturnResource = createResource({
-	url: "posnext.api.invoices.submit_invoice",
+	url: "pos_next.api.invoices.submit_invoice",
 	makeParams() {
 		// Build invoice data matching the API's expected format
 		const invoiceData = {

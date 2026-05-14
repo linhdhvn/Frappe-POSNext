@@ -34,12 +34,12 @@ Welcome to the POS Next documentation directory. This folder contains comprehens
 **Check current version:**
 ```bash
 cd /home/ubuntu/frappe-bench
-bench --site nexus.local execute posnext.utils.get_app_version
+bench --site nexus.local execute pos_next.utils.get_app_version
 ```
 
 **Bump version:**
 ```bash
-cd /home/ubuntu/frappe-bench/apps/posnext
+cd /home/ubuntu/frappe-bench/apps/pos_next
 ./scripts/version-bump.sh patch  # or minor/major
 ```
 
@@ -66,7 +66,7 @@ docs/
 
 ## 🔗 External Resources
 
-- [POS Next Repository](https://github.com/your-org/posnext)
+- [POS Next Repository](https://github.com/your-org/pos_next)
 - [ERPNext Documentation](https://docs.erpnext.com)
 - [Frappe Framework Documentation](https://frappeframework.com/docs)
 - [Vite Documentation](https://vitejs.dev)

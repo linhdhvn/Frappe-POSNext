@@ -27,7 +27,7 @@ export function useInvoice() {
 
 	// Resources
 	const updateInvoiceResource = createResource({
-		url: "posnext.api.invoices.update_invoice",
+		url: "pos_next.api.invoices.update_invoice",
 		makeParams(params) {
 			return { data: JSON.stringify(params.data) }
 		},
@@ -35,7 +35,7 @@ export function useInvoice() {
 	})
 
 	const submitInvoiceResource = createResource({
-		url: "posnext.api.invoices.submit_invoice",
+		url: "pos_next.api.invoices.submit_invoice",
 		makeParams(params) {
 			return {
 				invoice: JSON.stringify(params.invoice),
@@ -55,7 +55,7 @@ export function useInvoice() {
 	})
 
 	const validateCartItemsResource = createResource({
-		url: "posnext.api.invoices.validate_cart_items",
+		url: "pos_next.api.invoices.validate_cart_items",
 		makeParams({ items, pos_profile }) {
 			return {
 				items: JSON.stringify(items),
@@ -66,7 +66,7 @@ export function useInvoice() {
 	})
 
 	const applyOffersResource = createResource({
-		url: "posnext.api.invoices.apply_offers",
+		url: "pos_next.api.invoices.apply_offers",
 		makeParams({ invoice_data, selected_offers }) {
 			const params = {
 				invoice_data: JSON.stringify(invoice_data),
@@ -82,17 +82,17 @@ export function useInvoice() {
 	})
 
 	const getItemDetailsResource = createResource({
-		url: "posnext.api.items.get_item_details",
+		url: "pos_next.api.items.get_item_details",
 		auto: false,
 	})
 
 	const getTaxesResource = createResource({
-		url: "posnext.api.pos_profile.get_taxes",
+		url: "pos_next.api.pos_profile.get_taxes",
 		auto: false,
 	})
 
 	const getDefaultCustomerResource = createResource({
-		url: "posnext.api.pos_profile.get_default_customer",
+		url: "pos_next.api.pos_profile.get_default_customer",
 		makeParams({ pos_profile }) {
 			return { pos_profile }
 		},
@@ -100,7 +100,7 @@ export function useInvoice() {
 	})
 
 	const cleanupDraftsResource = createResource({
-		url: "posnext.api.invoices.cleanup_old_drafts",
+		url: "pos_next.api.invoices.cleanup_old_drafts",
 		auto: false,
 	})
 

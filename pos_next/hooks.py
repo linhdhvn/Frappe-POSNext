@@ -1,6 +1,6 @@
-from posnext.utils import get_build_version
+from pos_next.utils import get_build_version
 
-app_name = "posnext"
+app_name = "pos_next"
 app_title = "POS Next"
 app_publisher = "BrainWise"
 app_description = "POS built on ERPNext that brings together real-time billing, stock management, multi-user access, offline mode, and direct ERP integration. Run your store or restaurant with confidence and control, while staying 100% open source."
@@ -15,11 +15,11 @@ app_license = "agpl-3.0"
 # Each item in the list will be shown as an app in the apps page
 # add_to_apps_screen = [
 # 	{
-# 		"name": "posnext",
-# 		"logo": "/assets/posnext/logo.png",
+# 		"name": "pos_next",
+# 		"logo": "/assets/pos_next/logo.png",
 # 		"title": "POS Next",
-# 		"route": "/posnext",
-# 		"has_permission": "posnext.api.permission.has_app_permission"
+# 		"route": "/pos_next",
+# 		"has_permission": "pos_next.api.permission.has_app_permission"
 # 	}
 # ]
 
@@ -30,15 +30,15 @@ app_license = "agpl-3.0"
 _asset_version = get_build_version()
 
 # include js, css files in header of desk.html
-# app_include_css = f"/assets/posnext/css/posnext.css?v={_asset_version}"
-# app_include_js = f"/assets/posnext/js/posnext.js?v={_asset_version}"
+# app_include_css = f"/assets/pos_next/css/pos_next.css?v={_asset_version}"
+# app_include_js = f"/assets/pos_next/js/pos_next.js?v={_asset_version}"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/posnext/css/posnext.css"
-# web_include_js = "/assets/posnext/js/posnext.js"
+# web_include_css = "/assets/pos_next/css/pos_next.css"
+# web_include_js = "/assets/pos_next/js/pos_next.js"
 
 # include custom scss in every website theme (without file extension ".scss")
-# website_theme_scss = "posnext/public/scss/website"
+# website_theme_scss = "pos_next/public/scss/website"
 
 # include js, css files in header of web form
 # webform_include_js = {"doctype": "public/js/doctype.js"}
@@ -56,7 +56,7 @@ _asset_version = get_build_version()
 # Svg Icons
 # ------------------
 # include app icons in desk
-# app_include_icons = "posnext/public/icons.svg"
+# app_include_icons = "pos_next/public/icons.svg"
 
 # Home Pages
 # ----------
@@ -80,8 +80,8 @@ _asset_version = get_build_version()
 
 # add methods and filters to jinja environment
 # jinja = {
-# 	"methods": "posnext.utils.jinja_methods",
-# 	"filters": "posnext.utils.jinja_filters"
+# 	"methods": "pos_next.utils.jinja_methods",
+# 	"filters": "pos_next.utils.jinja_filters"
 # }
 
 # Fixtures
@@ -121,37 +121,37 @@ fixtures = [
 # Installation
 # ------------
 
-# before_install = "posnext.install.before_install"
-after_install = "posnext.install.after_install"
-after_migrate = "posnext.install.after_migrate"
+# before_install = "pos_next.install.before_install"
+after_install = "pos_next.install.after_install"
+after_migrate = "pos_next.install.after_migrate"
 
 # Uninstallation
 # ------------
 
-before_uninstall = "posnext.uninstall.before_uninstall"
-# after_uninstall = "posnext.uninstall.after_uninstall"
+before_uninstall = "pos_next.uninstall.before_uninstall"
+# after_uninstall = "pos_next.uninstall.after_uninstall"
 
 # Integration Setup
 # ------------------
 # To set up dependencies/integrations with other apps
 # Name of the app being installed is passed as an argument
 
-# before_app_install = "posnext.utils.before_app_install"
-# after_app_install = "posnext.utils.after_app_install"
+# before_app_install = "pos_next.utils.before_app_install"
+# after_app_install = "pos_next.utils.after_app_install"
 
 # Integration Cleanup
 # -------------------
 # To clean up dependencies/integrations with other apps
 # Name of the app being uninstalled is passed as an argument
 
-# before_app_uninstall = "posnext.utils.before_app_uninstall"
-# after_app_uninstall = "posnext.utils.after_app_uninstall"
+# before_app_uninstall = "pos_next.utils.before_app_uninstall"
+# after_app_uninstall = "pos_next.utils.after_app_uninstall"
 
 # Desk Notifications
 # ------------------
 # See frappe.core.notifications.get_notification_config
 
-# notification_config = "posnext.notifications.get_notification_config"
+# notification_config = "pos_next.notifications.get_notification_config"
 
 # Permissions
 # -----------
@@ -169,7 +169,7 @@ before_uninstall = "posnext.uninstall.before_uninstall"
 # ----------------
 # Custom query for company-aware item filtering
 standard_queries = {
-	"Item": "posnext.validations.item_query"
+	"Item": "pos_next.validations.item_query"
 }
 
 # DocType Class
@@ -186,17 +186,17 @@ standard_queries = {
 
 doc_events = {
 	"Item": {
-		"validate": "posnext.validations.validate_item"
+		"validate": "pos_next.validations.validate_item"
 	},
 	"Sales Invoice": {
-		"validate": "posnext.api.sales_invoice_hooks.validate",
-		"before_cancel": "posnext.api.sales_invoice_hooks.before_cancel",
-		"on_submit": "posnext.realtime_events.emit_stock_update_event",
-		"on_cancel": "posnext.realtime_events.emit_stock_update_event",
-		"after_insert": "posnext.realtime_events.emit_invoice_created_event"
+		"validate": "pos_next.api.sales_invoice_hooks.validate",
+		"before_cancel": "pos_next.api.sales_invoice_hooks.before_cancel",
+		"on_submit": "pos_next.realtime_events.emit_stock_update_event",
+		"on_cancel": "pos_next.realtime_events.emit_stock_update_event",
+		"after_insert": "pos_next.realtime_events.emit_invoice_created_event"
 	},
 	"POS Profile": {
-		"on_update": "posnext.realtime_events.emit_pos_profile_updated_event"
+		"on_update": "pos_next.realtime_events.emit_pos_profile_updated_event"
 	}
 }
 
@@ -205,34 +205,34 @@ doc_events = {
 
 scheduler_events = {
 	"hourly": [
-		"posnext.tasks.branding_monitor.monitor_branding_integrity",
+		"pos_next.tasks.branding_monitor.monitor_branding_integrity",
 	],
 	"daily": [
-		"posnext.tasks.cleanup_expired_promotions.cleanup_expired_promotions",
-		"posnext.tasks.branding_monitor.validate_all_active_sessions",
+		"pos_next.tasks.cleanup_expired_promotions.cleanup_expired_promotions",
+		"pos_next.tasks.branding_monitor.validate_all_active_sessions",
 	],
 	"monthly": [
-		"posnext.tasks.branding_monitor.reset_tampering_counter",
+		"pos_next.tasks.branding_monitor.reset_tampering_counter",
 	],
 }
 
 # Testing
 # -------
 
-# before_tests = "posnext.install.before_tests"
+# before_tests = "pos_next.install.before_tests"
 
 # Overriding Methods
 # ------------------------------
 #
 # override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "posnext.event.get_events"
+# 	"frappe.desk.doctype.event.event.get_events": "pos_next.event.get_events"
 # }
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps
 # override_doctype_dashboards = {
-# 	"Task": "posnext.task.get_dashboard_data"
+# 	"Task": "pos_next.task.get_dashboard_data"
 # }
 
 # exempt linked doctypes from being automatically cancelled
@@ -246,13 +246,13 @@ scheduler_events = {
 
 # Request Events
 # ----------------
-# before_request = ["posnext.utils.before_request"]
-# after_request = ["posnext.utils.after_request"]
+# before_request = ["pos_next.utils.before_request"]
+# after_request = ["pos_next.utils.after_request"]
 
 # Job Events
 # ----------
-# before_job = ["posnext.utils.before_job"]
-# after_job = ["posnext.utils.after_job"]
+# before_job = ["pos_next.utils.before_job"]
+# after_job = ["pos_next.utils.after_job"]
 
 # User Data Protection
 # --------------------
@@ -282,7 +282,7 @@ scheduler_events = {
 # --------------------------------
 
 # auth_hooks = [
-# 	"posnext.auth.validate"
+# 	"pos_next.auth.validate"
 # ]
 
 # Automatically update python controller files with type annotations for this app.

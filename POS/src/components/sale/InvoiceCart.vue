@@ -836,12 +836,12 @@ const openUomDropdown = ref(null)
  * - Caches customers in service worker for offline support
  * - On mount: First checks cache, then refreshes from server if online
  *
- * @endpoint posnext.api.customers.get_customers
+ * @endpoint pos_next.api.customers.get_customers
  * @cache Service Worker IndexedDB
  */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const customersResource = createResource({
-	url: "posnext.api.customers.get_customers",
+	url: "pos_next.api.customers.get_customers",
 	makeParams() {
                 return {
                         search_term: "", // Empty to get all customers
@@ -890,11 +890,11 @@ const customersResource = createResource({
  * - Only fetches when online (offers not cached for offline use)
  * - Used for the "Offers" button badge count and offers dialog
  *
- * @endpoint posnext.api.offers.get_offers
+ * @endpoint pos_next.api.offers.get_offers
  */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const offersResource = createResource({
-	url: "posnext.api.offers.get_offers",
+	url: "pos_next.api.offers.get_offers",
 	makeParams() {
 		return {
 			pos_profile: props.posProfile,
@@ -923,10 +923,10 @@ if (!isOffline()) {
  * - Reloads when customer changes (via watcher)
  * - Used for the "Coupon" button badge count
  *
- * @endpoint posnext.api.offers.get_active_coupons
+ * @endpoint pos_next.api.offers.get_active_coupons
  */
 const giftCardsResource = createResource({
-	url: "posnext.api.offers.get_active_coupons",
+	url: "pos_next.api.offers.get_active_coupons",
 	makeParams() {
 		return {
 			customer: props.customer?.name || props.customer,

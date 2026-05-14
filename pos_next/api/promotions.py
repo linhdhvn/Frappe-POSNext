@@ -873,7 +873,7 @@ def apply_referral_code(referral_code, customer):
 	Returns:
 		dict with generated coupon information
 	"""
-	from posnext.posnext.doctype.referral_code.referral_code import apply_referral_code as apply_code
+	from pos_next.pos_next.doctype.referral_code.referral_code import apply_referral_code as apply_code
 
 	try:
 		result = apply_code(referral_code, customer)

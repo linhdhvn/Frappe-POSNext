@@ -255,7 +255,7 @@ export const useItemSearchStore = defineStore("itemSearch", () => {
 
 	// Resources (for server-side operations)
 	const itemGroupsResource = createResource({
-		url: "posnext.api.items.get_item_groups",
+		url: "pos_next.api.items.get_item_groups",
 		makeParams() {
 			return {
 				pos_profile: posProfile.value,
@@ -272,7 +272,7 @@ export const useItemSearchStore = defineStore("itemSearch", () => {
 	})
 
 	const searchByBarcodeResource = createResource({
-		url: "posnext.api.items.search_by_barcode",
+		url: "pos_next.api.items.search_by_barcode",
 		auto: false,
 	})
 
@@ -763,7 +763,7 @@ export const useItemSearchStore = defineStore("itemSearch", () => {
 				log.debug(`Fetching ${itemsPerPage.value} items (no filters)`)
 
 				// Fetch first batch (e.g., 20-50 items) for fast initial render
-				const response = await call("posnext.api.items.get_items", {
+				const response = await call("pos_next.api.items.get_items", {
 					pos_profile: profile,
 					search_term: "",
 					item_group: null, // No filter - get items from all groups
@@ -827,7 +827,7 @@ export const useItemSearchStore = defineStore("itemSearch", () => {
 		const fetchPromises = itemGroups.map(async (groupObj) => {
 			const itemGroup = groupObj.item_group
 			try {
-				const response = await call("posnext.api.items.get_items", {
+				const response = await call("pos_next.api.items.get_items", {
 					pos_profile: profile,
 					search_term: "",
 					item_group: itemGroup,
@@ -956,7 +956,7 @@ export const useItemSearchStore = defineStore("itemSearch", () => {
 			// Fetch next batch from server
 			// start: currentOffset (e.g., 50 after first batch)
 			// limit: itemsPerPage (e.g., 50 items per batch)
-			const response = await call("posnext.api.items.get_items", {
+			const response = await call("pos_next.api.items.get_items", {
 				pos_profile: posProfile.value,
 				search_term: "",
 				item_group: null, // No filter - get items from all groups
@@ -1037,7 +1037,7 @@ export const useItemSearchStore = defineStore("itemSearch", () => {
 		const fetchBatch = async () => {
 			try {
 				log.debug(`Background sync: fetching batch at offset ${offset}`)
-				const response = await call("posnext.api.items.get_items", {
+				const response = await call("pos_next.api.items.get_items", {
 					pos_profile: profile,
 					search_term: "",
 					item_group: null, // No filters for background sync
@@ -1155,7 +1155,7 @@ export const useItemSearchStore = defineStore("itemSearch", () => {
 
 					// Now search server in background for fresh results
 					log.debug(`Searching server for: "${term}"`)
-					const response = await call("posnext.api.items.get_items", {
+					const response = await call("pos_next.api.items.get_items", {
 						pos_profile: posProfile.value,
 						search_term: term,
 						item_group: selectedItemGroup.value,
@@ -1364,7 +1364,7 @@ export const useItemSearchStore = defineStore("itemSearch", () => {
 		// Fetch item groups from POS Profile FIRST
 		if (profile) {
 			try {
-				const data = await call("posnext.api.pos_profile.get_pos_profile_data", {
+				const data = await call("pos_next.api.pos_profile.get_pos_profile_data", {
 					pos_profile: profile
 				})
 

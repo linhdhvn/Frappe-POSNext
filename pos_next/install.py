@@ -55,7 +55,7 @@ def install_fixtures(quiet=False):
 	import os
 	import json
 
-	fixtures_path = frappe.get_app_path("posnext", "fixtures")
+	fixtures_path = frappe.get_app_path("pos_next", "fixtures")
 
 	if not os.path.exists(fixtures_path):
 		if not quiet:

@@ -25,7 +25,7 @@ const log = logger.create('OfflineWorker')
 // ============================================================================
 
 const CONFIG = {
-	DB_NAME: "posnext_offline",
+	DB_NAME: "pos_next_offline",
 	BATCH_SIZE: 500,               // Optimal for IndexedDB performance
 	MAX_RETRY_ATTEMPTS: 3,
 	RETRY_DELAY_MS: 1000,
@@ -326,7 +326,7 @@ async function pingServer() {
 		const controller = new AbortController()
 		const timeoutId = setTimeout(() => controller.abort(), 3000)
 
-		const response = await fetch("/api/method/posnext.api.ping", {
+		const response = await fetch("/api/method/pos_next.api.ping", {
 			method: "GET",
 			signal: controller.signal,
 		})
@@ -1104,7 +1104,7 @@ async function fetchStockFromServer() {
 			headers['X-Frappe-CSRF-Token'] = csrfToken
 		}
 
-		const response = await fetch('/api/method/posnext.api.items.get_stock_quantities', {
+		const response = await fetch('/api/method/pos_next.api.items.get_stock_quantities', {
 			method: 'POST',
 			headers,
 			body: JSON.stringify({

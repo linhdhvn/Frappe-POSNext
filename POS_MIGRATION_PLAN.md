@@ -103,7 +103,7 @@ src/
 ### Backend Architecture
 
 ```
-posnext/
+pos_next/
 ├── api/
 │   ├── v1/           # Versioned API
 │   │   ├── invoice.py

@@ -7,18 +7,18 @@
 ```bash
 # Application version
 cd /home/ubuntu/frappe-bench
-bench --site nexus.local execute posnext.utils.get_app_version
+bench --site nexus.local execute pos_next.utils.get_app_version
 # Output: "1.0.0"
 
 # Build version (for cache busting)
-bench --site nexus.local execute posnext.utils.get_build_version
+bench --site nexus.local execute pos_next.utils.get_build_version
 # Output: "1730569908806"
 ```
 
 ### Bump Version
 
 ```bash
-cd /home/ubuntu/frappe-bench/apps/posnext
+cd /home/ubuntu/frappe-bench/apps/pos_next
 
 # Patch release (1.0.0 → 1.0.1) - Bug fixes
 ./scripts/version-bump.sh patch
@@ -38,7 +38,7 @@ cd POS
 yarn build
 
 # 2. Verify build version
-cat ../posnext/public/pos/version.json
+cat ../pos_next/public/pos/version.json
 
 # 3. Commit and tag
 git add .
@@ -49,10 +49,10 @@ git push origin develop --tags
 
 ## File Locations
 
-- **App Version**: `posnext/__init__.py` → `__version__ = "1.0.0"`
+- **App Version**: `pos_next/__init__.py` → `__version__ = "1.0.0"`
 - **Frontend Version**: `POS/package.json` → `"version": "1.0.0"`
-- **Build Version**: `posnext/public/pos/version.json` (generated during build)
-- **Version Utilities**: `posnext/utils.py`
+- **Build Version**: `pos_next/public/pos/version.json` (generated during build)
+- **Version Utilities**: `pos_next/utils.py`
 - **Bump Script**: `scripts/version-bump.sh`
 
 ## Common Tasks
@@ -68,7 +68,7 @@ cd POS && yarn build
 
 # 3. Test locally
 cd /home/ubuntu/frappe-bench
-bench --site nexus.local execute posnext.utils.get_build_version
+bench --site nexus.local execute pos_next.utils.get_build_version
 
 # 4. Commit and tag
 git add .
@@ -87,7 +87,7 @@ cd POS
 yarn build
 
 # 2. Verify new build version was generated
-cat ../posnext/public/pos/version.json
+cat ../pos_next/public/pos/version.json
 
 # 3. Restart bench (optional, for backend changes)
 cd /home/ubuntu/frappe-bench
@@ -98,14 +98,14 @@ bench restart
 
 ```bash
 # Check all version files exist
-ls -la posnext/__init__.py
+ls -la pos_next/__init__.py
 ls -la POS/package.json
-ls -la posnext/public/pos/version.json
+ls -la pos_next/public/pos/version.json
 
 # Check versions match
-grep "__version__" posnext/__init__.py
+grep "__version__" pos_next/__init__.py
 grep "version" POS/package.json
-cat posnext/public/pos/version.json
+cat pos_next/public/pos/version.json
 ```
 
 ## Version Strategy
@@ -120,7 +120,7 @@ cat posnext/public/pos/version.json
 ```bash
 # Solution: Clear cache and rebuild
 cd POS
-rm -rf ../posnext/public/pos/*
+rm -rf ../pos_next/public/pos/*
 yarn build
 ```
 

@@ -803,7 +803,7 @@ async function loadUnpaidInvoices() {
 
 	try {
 		const result = await call(
-			"posnext.api.partial_payments.get_unpaid_invoices",
+			"pos_next.api.partial_payments.get_unpaid_invoices",
 			{
 				pos_profile: props.posProfile,
 				limit: 100,
@@ -824,7 +824,7 @@ async function loadUnpaidSummary() {
 
 	try {
 		const result = await call(
-			"posnext.api.partial_payments.get_unpaid_summary",
+			"pos_next.api.partial_payments.get_unpaid_summary",
 			{
 				pos_profile: props.posProfile,
 			},
@@ -849,7 +849,7 @@ async function handlePaymentCompleted(paymentData) {
 	if (!selectedInvoice.value) return
 
 	try {
-		await call("posnext.api.partial_payments.add_payment_to_partial_invoice", {
+		await call("pos_next.api.partial_payments.add_payment_to_partial_invoice", {
 			invoice_name: selectedInvoice.value.name,
 			payments: paymentData.payments,
 		})

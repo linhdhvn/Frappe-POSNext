@@ -10,7 +10,7 @@ const log = logger.create("Locale")
 // Reactive locale state (shared across all components)
 const currentLocale = ref("en")
 const currentDir = ref("ltr")
-const PREFARED_LANGUAGE_KEY = "posnext_language"
+const PREFARED_LANGUAGE_KEY = "pos_next_language"
 
 /** Track if initial language fetch from server has been attempted */
 let serverLanguageFetched = false
@@ -41,10 +41,10 @@ export const SUPPORTED_LOCALES = {
 		countryCode: "eg",
 		dir: "rtl",
 	},
-	vn: {
+	vi: {
 		name: "Vietnamese",
 		nativeName: "Tiếng Việt",
-		countryCode: "vi",
+		countryCode: "vn",
 		dir: "ltr",
 	}
 }
@@ -70,7 +70,7 @@ async function fetchLanguageFromServer() {
 
 	// Fallback to direct API call
 	try {
-		const response = await call("posnext.api.localization.get_user_language", {})
+		const response = await call("pos_next.api.localization.get_user_language", {})
 		if (response?.locale && SUPPORTED_LOCALES[response.locale]) {
 			log.info(`Fetched language from server: ${response.locale}`)
 			return response.locale
@@ -162,7 +162,7 @@ export function useLocale() {
 
 		// Update Frappe user settings first (this changes the user's language in Frappe)
 		try {
-			await call("posnext.api.localization.change_user_language", {
+			await call("pos_next.api.localization.change_user_language", {
 				locale: newLocale,
 			})
 		} catch (error) {

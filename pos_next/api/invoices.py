@@ -489,7 +489,7 @@ def update_invoice(data):
         if coupon_code:
             # Validate POS Coupon exists and is valid
             if frappe.db.table_exists("POS Coupon"):
-                from posnext.posnext.doctype.pos_coupon.pos_coupon import check_coupon_code
+                from pos_next.pos_next.doctype.pos_coupon.pos_coupon import check_coupon_code
 
                 coupon_result = check_coupon_code(
                     coupon_code,
@@ -609,7 +609,7 @@ def submit_invoice(invoice=None, data=None):
             # Increment usage counter for POS Coupon
             if frappe.db.table_exists("POS Coupon"):
                 try:
-                    from posnext.posnext.doctype.pos_coupon.pos_coupon import increment_coupon_usage
+                    from pos_next.pos_next.doctype.pos_coupon.pos_coupon import increment_coupon_usage
                     increment_coupon_usage(coupon_code)
                 except Exception as e:
                     frappe.log_error(
@@ -677,7 +677,7 @@ def submit_invoice(invoice=None, data=None):
 
         if redeemed_customer_credit and customer_credit_dict:
             try:
-                from posnext.api.credit_sales import redeem_customer_credit
+                from pos_next.api.credit_sales import redeem_customer_credit
                 redeem_customer_credit(invoice_doc.name, customer_credit_dict)
             except Exception as credit_error:
                 frappe.log_error(
