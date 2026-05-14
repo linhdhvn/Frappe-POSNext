@@ -195,7 +195,7 @@ export const usePOSSettingsStore = defineStore("posSettings", () => {
 
 	// Resource
 	const settingsResource = createResource({
-		url: "pos_next.pos_next.doctype.pos_settings.pos_settings.get_pos_settings",
+		url: "posnext.posnext.doctype.pos_settings.pos_settings.get_pos_settings",
 		onSuccess(data) {
 			console.log('[POSSettings Store] Loaded settings:', data)
 			if (data) {

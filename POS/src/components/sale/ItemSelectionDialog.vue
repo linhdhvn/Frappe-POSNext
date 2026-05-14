@@ -307,7 +307,7 @@ const matchedVariant = computed(() => {
 
 // Resource for fetching variants
 const variantsResource = createResource({
-	url: "pos_next.api.items.get_item_variants",
+	url: "posnext.api.items.get_item_variants",
 	makeParams() {
 		return {
 			template_item: props.item?.item_code,

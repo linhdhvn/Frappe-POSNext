@@ -715,7 +715,7 @@ const additionalDiscountType = ref(
 )
 
 const paymentMethodsResource = createResource({
-	url: "pos_next.api.pos_profile.get_payment_methods",
+	url: "posnext.api.pos_profile.get_payment_methods",
 	makeParams() {
 		return {
 			pos_profile: props.posProfile,
@@ -733,7 +733,7 @@ const paymentMethodsResource = createResource({
 })
 
 const customerCreditResource = createResource({
-	url: "pos_next.api.credit_sales.get_available_credit",
+	url: "posnext.api.credit_sales.get_available_credit",
 	makeParams() {
 		const customerName = props.customer?.name || props.customer
 		console.log('[PaymentDialog] Fetching credit for customer:', customerName)
@@ -758,7 +758,7 @@ const customerCreditResource = createResource({
 })
 
 const customerBalanceResource = createResource({
-	url: "pos_next.api.credit_sales.get_customer_balance",
+	url: "posnext.api.credit_sales.get_customer_balance",
 	makeParams() {
 		const customerName = props.customer?.name || props.customer
 		console.log('[PaymentDialog] Fetching balance for customer:', customerName)
@@ -786,7 +786,7 @@ const salesPersonSearch = ref('')
 const loadingSalesPersons = ref(false)
 
 const salesPersonsResource = createResource({
-	url: "pos_next.api.pos_profile.get_sales_persons",
+	url: "posnext.api.pos_profile.get_sales_persons",
 	makeParams() {
 		return {
 			pos_profile: props.posProfile,

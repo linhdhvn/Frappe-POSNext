@@ -123,7 +123,7 @@ const getLocale = (): string => {
 
   return (
     (window as any)?.frappe?.boot?.lang?.toLowerCase() ||
-    window.localStorage?.getItem("pos_next_language")?.toLowerCase() ||
+    window.localStorage?.getItem("posnext_language")?.toLowerCase() ||
     FALLBACK_LOCALE
   )
 }

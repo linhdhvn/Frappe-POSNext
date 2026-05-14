@@ -7,12 +7,13 @@ node_modules
 __pycache__
 
 # Build artifacts
-pos_next/public/pos/
-pos_next/www/
+posnext/public/pos/
+posnext/www/
 yarn.lock
 package-lock.json
 
 # IDE and editor files
+.vs/
 .vscode/
 .idea/
 *.sublime-*

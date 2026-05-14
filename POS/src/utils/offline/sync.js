@@ -11,7 +11,7 @@ export const pingServer = async () => {
 		const controller = new AbortController()
 		const timeoutId = setTimeout(() => controller.abort(), 3000) // 3 second timeout
 
-		const response = await fetch("/api/method/pos_next.api.ping", {
+		const response = await fetch("/api/method/posnext.api.ping", {
 			method: "GET",
 			signal: controller.signal,
 		})
@@ -125,7 +125,7 @@ export const syncOfflineInvoices = async () => {
 
 			// Submit invoice to server
 			// The API expects 'data' parameter with nested 'invoice' and 'data' keys
-			const response = await call("pos_next.api.invoices.submit_invoice", {
+			const response = await call("posnext.api.invoices.submit_invoice", {
 				data: JSON.stringify({
 					invoice: invoiceData,
 					data: {},
